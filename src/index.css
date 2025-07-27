@@ -52,7 +52,7 @@ body,
 }
 
 #root {
-  @apply flex 
+  @apply flex flex-col
 }
 body {
   font-family: "Outfit"
