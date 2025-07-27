@@ -58,6 +58,7 @@ function Signup() {
               name="confirmPassword"
               type="password"
             />
+                 {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
               <div className="mt-10 flex justify-between">
                 <button type="submit" className="btn btn-primary">
                   Signup

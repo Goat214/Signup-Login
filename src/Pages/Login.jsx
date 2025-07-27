@@ -1,8 +1,29 @@
 import { Link } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import { FcGoogle } from "react-icons/fc";
+import { useState } from "react";
 
 function Login() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+
+    if (!formData.get("email")) {
+      alert("Email maydonini to'ldiring!");
+      return;
+    }
+    if (!formData.get("password")) {
+      alert("Password maydonini to'ldiring!");
+      return;
+    }
+
+
+    const email = formData.get("email");
+    const password = formData.get("password");
+    
+
+    console.log( email, password);
+  };
   return (
     <main>
       <div className="regestration lg:flex hidden h-full grow w-1/4"></div>
@@ -11,7 +32,7 @@ function Login() {
         <div className="relative z-20 bg-black/50 lg:bg-white  rounded-lg shadow-lg p-8 w-96">
           <div>
             <h3 className="text-3xl mb-5 text-white lg:text-black">Login</h3>
-            <form className="">
+            <form onSubmit={handleSubmit} className="">
               <FormInput label="Email" name="email" type="email" />
               <FormInput label="Password" name="password" type="password" />
               <div className="mt-10 flex justify-between">
@@ -22,7 +43,7 @@ function Login() {
                   type="button"
                   className="btn flex items-center gap-2 px-4 py-2 border rounded hover:bg-gray-200"
                 >
-                   <FcGoogle />
+                  <FcGoogle />
                   Google
                 </button>
               </div>
