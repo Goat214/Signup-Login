@@ -48,7 +48,7 @@ function Signup() {
         <div className="relative z-20 bg-black/40 lg:bg-white  rounded-lg shadow-lg p-8 w-96">
           <div>
             <h3 className="text-3xl mb-5 text-white  lg:text-black">Login</h3>
-            <form className="">
+            <form onSubmit={handleSubmit} className="">
             <FormInput label="displayName" name="displayName" type="text" />
               <FormInput label="Email" name="email" type="email" />
               
