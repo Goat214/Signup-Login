@@ -29,7 +29,7 @@ function Login() {
       <div className="regestration lg:flex hidden h-full grow w-1/4"></div>
       <div className="regestration grow lg:bg-none grid place-items-center relative">
         <div className="fixed top-0 left-0 bottom-0 w-full bg-black/60 lg:hidden z-10 h-screen"></div>
-        <div className="relative z-20 bg-black/50 lg:bg-white  rounded-lg shadow-lg p-8 w-96">
+        <div className="relative box z-20 bg-black/50 lg:bg-white  rounded-lg shadow-lg p-8 w-96">
           <div>
             <h3 className="text-3xl mb-5 text-white lg:text-black">Login</h3>
             <form onSubmit={handleSubmit} className="">
