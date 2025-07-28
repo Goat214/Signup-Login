@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import FormInput from "../components/FormInput";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Signup() {
   const [error, setError] = useState("");
@@ -11,19 +13,19 @@ function Signup() {
     const formData = new FormData(e.target);
 
     if (!formData.get("displayName")) {
-      alert("Display Name maydonini to'ldiring!");
+      toast.warning("Display Name maydonini to'ldiring!");
       return;
     }
     if (!formData.get("email")) {
-      alert("Email maydonini to'ldiring!");
+      toast.warning("Email maydonini to'ldiring!");
       return;
     }
     if (!formData.get("password")) {
-      alert("Password maydonini to'ldiring!");
+      toast.warning("Password maydonini to'ldiring!");
       return;
     }
     if (!formData.get("confirmPassword")) {
-      alert("Confirm Password maydonini to'ldiring!");
+      toast.warning("Confirm Password maydonini to'ldiring!");
       return;
     }
 
@@ -49,16 +51,18 @@ function Signup() {
           <div>
             <h3 className="text-3xl mb-5 text-white  lg:text-black">Login</h3>
             <form onSubmit={handleSubmit} className="">
-            <FormInput label="displayName" name="displayName" type="text" />
+              <FormInput label="displayName" name="displayName" type="text" />
               <FormInput label="Email" name="email" type="email" />
-              
+
               <FormInput label="Password" name="password" type="password" />
-            <FormInput
-              label="Repaird Password"
-              name="confirmPassword"
-              type="password"
-            />
-                 {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+              <FormInput
+                label="Repaird Password"
+                name="confirmPassword"
+                type="password"
+              />
+              {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+              <ToastContainer />
+
               <div className="mt-10 flex justify-between">
                 <button type="submit" className="btn btn-primary">
                   Signup
@@ -73,7 +77,10 @@ function Signup() {
               </div>
               <p className="mt-6 text-center text-white lg:text-gray-700">
                 Ro'yxatdan o'tganmisiz?
-                <Link to="/login" className="text-blue-600 ml-6 hover:underline">
+                <Link
+                  to="/login"
+                  className="text-blue-600 ml-6 hover:underline"
+                >
                   kirish
                 </Link>
               </p>
