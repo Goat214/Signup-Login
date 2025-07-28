@@ -1,22 +1,26 @@
 import { Link } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import { FcGoogle } from "react-icons/fc";
-import { useState } from "react";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-
     if (!formData.get("email")) {
-      alert("Email maydonini to'ldiring!");
+      toast.warning("Email maydonini to'ldiring!");
       return;
     }
+    
     if (!formData.get("password")) {
-      alert("Password maydonini to'ldiring!");
+      toast.warning("Password maydonini to'ldiring!");
       return;
     }
-
+    
+    
 
     const email = formData.get("email");
     const password = formData.get("password");
@@ -30,6 +34,8 @@ function Login() {
       <div className="regestration grow lg:bg-none grid place-items-center relative">
         <div className="fixed top-0 left-0 bottom-0 w-full bg-black/60 lg:hidden z-10 h-screen"></div>
         <div className="relative box z-20 bg-black/50 lg:bg-white  rounded-lg shadow-lg p-8 w-96">
+        <ToastContainer />
+
           <div>
             <h3 className="text-3xl mb-5 text-white lg:text-black">Login</h3>
             <form onSubmit={handleSubmit} className="">
